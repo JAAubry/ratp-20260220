@@ -22,3 +22,5 @@ clean:
 mrproper: clean
 	rm testAll
 	rm result.xml
+	rm -f *.gbda
+	rm -f *.gcno
