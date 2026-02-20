@@ -25,12 +25,16 @@ static int teardown(void **state) {
 static void null_test_success(void **state) {
     (void) state;
 }
+static void test_ratp(void **state) {
+    (void) state;
+    assert_float_equal(1.2,computePrice(20.0,0),0.001);
+}
 
 
 
 int main(void) {
     const struct CMUnitTest tests[] = {
-        cmocka_unit_test(null_test_success),
+        cmocka_unit_test(test_ratp),
     };
     cmocka_set_message_output(CM_OUTPUT_XML);
     // Dans bash : export CMOCKA_XML_FILE='./result.xml'
