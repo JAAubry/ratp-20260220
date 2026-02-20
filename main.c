@@ -14,12 +14,12 @@
 
 static int setup(void **state) {
     (void) state;
-    printf("setUp");
+ //   printf("setUp");
  return 0;
 }
 static int teardown(void **state) {
     (void) state;
-    printf("tearDown");
+ //   printf("tearDown");
      return 0;
 }
 static void null_test_success(void **state) {
