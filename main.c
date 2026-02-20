@@ -32,6 +32,6 @@ int main(void) {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(null_test_success),
     };
- //   cmocka_set_message_output(CM_OUTPUT_XML);
+    cmocka_set_message_output(CM_OUTPUT_XML);
     return cmocka_run_group_tests_name("toto",tests, setup, teardown);
 }
