@@ -1,0 +1,27 @@
+        -:    0:Source:ratp.c
+        -:    0:Graph:ratp.gcno
+        -:    0:Data:-
+        -:    0:Runs:0
+        -:    1:static const float Price = 1.2;
+function computePrice called 0 returned 0% blocks executed 0%
+    #####:    2:float computePrice(int age, int tourist)
+        -:    3:{
+    #####:    4:    if (age>12)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+        -:    5:    {
+    #####:    6:        if (tourist)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:    7:            return Price*2;
+    #####:    8:        return Price;
+        -:    9:    }
+        -:   10:    else 
+        -:   11:    {
+    #####:   12:        if (tourist)
+branch  0 never executed (fallthrough)
+branch  1 never executed
+    #####:   13:            return Price;
+    #####:   14:        return Price/2;
+        -:   15:    }
+        -:   16:}

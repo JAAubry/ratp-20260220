@@ -1,5 +1,5 @@
 CXX = gcc
-
+LDFLAGS = -lgcov --coverage
 INCS = -I.  -I"." 
 OBJS = $(SRC:.c=.o)
 
@@ -7,13 +7,17 @@ SRC = ratp.c  main.c
 
 
 all: $(OBJS)
-	$(CXX)  $(INCS) -o testAll  $(OBJS) -lcmocka
+	$(CXX) $(LDFLAGS) $(INCS) -o testAll  $(OBJS) -lcmocka
+	gcov -b ratp.c
 
 	
 exec : all
 	testAll.exe
 %.o: %.c
-	$(CXX)  -c  $< -o $@ $(INCS)
+	$(CXX) $(LDFLAGS) -c  $< -o $@ $(INCS)
+
+coverage: exec
+	gcov -b ratp.c
 	
 clean:
 	rm $(OBJS) 
