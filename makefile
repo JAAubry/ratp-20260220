@@ -5,26 +5,25 @@ OBJS = $(SRC:.c=.o)
 
 SRC = ratp.c  main.c 
 
-
 all: $(OBJS)
-	$(CXX) $(LDFLAGS) $(INCS) -o testAll  $(OBJS) -lcmocka
-	gcov -b ratp.c
+	$(CXX) $(LDFLAGS) $(INCS) -o testAll $(OBJS) -lcmocka
 
-	
-exec : all
-	testAll.exe
+exec: all
+	./testAll
+
 %.o: %.c
-	$(CXX) $(LDFLAGS) -c  $< -o $@ $(INCS)
+	$(CXX) $(LDFLAGS) -c $< -o $@ $(INCS)
 
 coverage: exec
 	gcov -b ratp.c
-	
-clean:
-	rm $(OBJS) 
+	gcovr --html-details result.html 
 
+clean:
+	rm -f $(OBJS)
 
 mrproper: clean
-	rm testAll
-	rm result.xml
-	rm -f *.gbda
+	rm -f testAll
+	rm -f result.xml
+	rm -f *.gcda
 	rm -f *.gcno
+	rm -f *.gcov
